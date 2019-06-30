@@ -7,7 +7,6 @@ export default class Musician {
 
   async getAlbums() {
     const response = await fetch(this.albumsUrl);
-    const result = await response.json();
-    return result;
+    return response.json();
   }
 }

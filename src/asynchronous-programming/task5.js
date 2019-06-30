@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable no-console */
 const urls = [
   'http://www.json-generator.com/api/json/get/cevhxOsZnS',
   'http://www.json-generator.com/api/json/get/cguaPsRxAi',
@@ -8,15 +9,19 @@ const urls = [
 ];
 const promises = urls.map(url => fetch(url));
 function getDataSequence() {
-  promises.forEach(value => {
-    value.then(response => response.json()).then(data => console.log(data));
-  });
+  promises.reduce((actionsChain, value) =>
+    actionsChain.then(() => {
+      return value.then(response => {
+        response.json().then(data => console.log(data));
+      });
+    }, Promise.resolve())
+  );
 }
 
 function getDataParallel() {
   Promise.all(promises).then(results =>
-    results.forEach(response => {
-      response.json().then(data => console.log(data));
+    results.map(response => {
+      return response.json().then(data => console.log(data));
     })
   );
 }
