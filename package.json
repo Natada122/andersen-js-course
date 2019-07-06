@@ -5,7 +5,9 @@
   "repository": "https://github.com/VictorDanilov/andersen-js-course.git",
   "author": "Viktor Danilov <wikslayer@gmail.com>",
   "license": "MIT",
+  "main": "src/server/server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "webpack-dev-server --open",
     "build": "webpack",
     "lint": "eslint --debug src/",
@@ -46,5 +48,17 @@
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.5.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "es6-promise": "^4.2.8",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.3",
+    "nodemon": "^1.19.1",
+    "save-dev": "^2.0.0"
   }
 }
